@@ -13,73 +13,97 @@
             color: white;
             overflow-x: hidden;
         }
+
+        header {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+        }
+
         .background-video {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Cover the entire viewport */
-            z-index: -1; /* Place behind other content */
-          
-}
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 150%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
 
-        
-
-        .container {
+        .header-title {
             position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            z-index: 1; /* Ensure it is above the video */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-       
-
-        .main-content {
+            z-index: 1;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out;
+            height: 100%;
+            text-align: center;
+            animation: fadeInDown 1s ease-out;
         }
 
-        .profile-content {
-            max-width: 50%;
-        }
-
-        .profile-content h1 {
-            font-size: 48px;
-            line-height: 1.2;
+        .header-title h1 {
+            font-size: 6vw;
             color: #ffffff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             animation: bounceIn 1s ease-out;
         }
 
+        .content {
+            padding: 5vw 5vw 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-content {
+            max-width: 100%;
+        }
+
         .profile-content p {
-            font-size: 18px;
+            font-size: 1.5vw;
             line-height: 1.6;
-            margin-top: 20px;
+            margin-top: 2vw;
             opacity: 0;
             animation: fadeInUp 1s 0.5s ease-out forwards;
         }
 
+        .image-content {
+            max-width: 100%;
+            margin-top: 2vw;
+            text-align: center;
+        }
+
+        .image-content img {
+            background-color: rgb(255, 240, 248);
+            border-radius: 1vw;
+            max-width: 80%;
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-content img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
         .buttons {
-            margin-top: 30px;
+            margin-top: 3vw;
+            display: flex;
+            gap: 2vw;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
             text-decoration: none;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 1vw 2vw;
+            border-radius: 0.5vw;
             font-weight: bold;
-            margin-right: 10px;
             transition: background-color 0.3s, transform 0.3s;
         }
 
@@ -95,33 +119,19 @@
             transform: scale(1.1);
         }
 
-        .image-content img {
-            background-color: rgb(255, 240, 248);
-            border-radius: 20px;
-            max-width: 100%;
-            height: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-            
-        }
-
-        .image-content img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
-        }
-
         .social-links {
-            margin-top: 40px;
+            margin-top: 4vw;
             display: flex;
-            gap: 20px;
+            gap: 2vw;
+            justify-content: center;
         }
 
         .social-links a {
             color: #00D8FF;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 2vw;
             display: flex;
-            align-items: centerl;
+            align-items: center;
             transition: color 0.3s;
         }
 
@@ -130,13 +140,14 @@
         }
 
         .games-section, .specs-section {
-            margin-top: 50px;
+            margin-top: 5vw;
+            padding: 0 5vw;
         }
 
         .section-title {
-            font-size: 24px;
+            font-size: 2vw;
             color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 2vw;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             animation: fadeIn 1s ease-out;
         }
@@ -144,32 +155,56 @@
         .games-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 2vw;
             list-style-type: none;
             padding: 0;
         }
 
-        .games-list li {
-            background-color: #27293D;
-            padding: 20px;
-            border-radius: 10px;
-            width: calc(33.333% - 20px); /* Adjust width based on the number of items per row */
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            box-sizing: border-box;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+        .games-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vw;
+    list-style-type: none;
+    padding: 0;
+}
 
-        .games-list li:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
+.games-list li {
+    background-color: #27293D;
+    padding: 2vw;
+    border-radius: 1vw;
+    width: calc(33.333% - 2vw); /* Adjust the width based on carousel size */
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 2vw; /* Default font size for desktop */
+}
 
-        .games-list img {
-            width: 60px; /* Adjust the size of the logo/icon as needed */
-            height: auto;
-        }
+.games-list li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.games-list img {
+    width: 5vw;
+    height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .games-list li {
+        width: calc(50% - 2vw);
+        font-size: 4vw; /* Adjust font size for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .games-list li {
+        width: 100%;
+        font-size: 5vw; /* Adjust font size for phones */
+    }
+}
 
         .specs-list {
             list-style-type: none;
@@ -178,10 +213,10 @@
 
         .specs-list li {
             background-color: #27293D;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            font-size: 18px;
+            padding: 1.5vw;
+            border-radius: 1vw;
+            margin-bottom: 1vw;
+            font-size: 5vw;
             display: flex;
             align-items: center;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -193,7 +228,7 @@
         }
 
         .specs-list li i {
-            margin-right: 10px;
+            margin-right: 1vw;
             color: #00D8FF;
         }
 
@@ -201,9 +236,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 50px;
+            margin-top: 5vw;
             color: #808080;
-            font-size: 14px;
+            font-size: 1.4vw;
+            padding: 0 5vw;
             animation: fadeIn 1s ease-out;
         }
 
@@ -252,128 +288,293 @@
             }
         }
 
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+            .header-title h1 {
+                font-size: 8vw;
             }
 
-            .profile-content {
-                max-width: 100%;
-            }
-
-            .profile-content h1 {
-                font-size: 36px;
+            .profile-content h2 {
+                font-size: 8vw;
             }
 
             .profile-content p {
-                font-size: 16px;
+                font-size: 4vw;
             }
 
             .buttons {
-                display: flex;
                 flex-direction: column;
                 align-items: center;
             }
 
             .btn {
-                margin-bottom: 10px;
+                margin-bottom: 2vw;
                 margin-right: 0;
+                padding: 2vw 4vw;
+            }
+
+            .image-content img {
+                width: 80%;
+                max-width: 300px;
             }
 
             .social-links {
                 flex-direction: column;
                 align-items: center;
-                gap: 10px;
+                gap: 2vw;
             }
 
             .social-links a {
-                font-size: 20px;
+                font-size: 5vw;
             }
 
             .games-list li {
-                width: calc(50% - 20px); /* Two items per row */
+                width: calc(50% - 2vw);
             }
         }
 
         @media (max-width: 480px) {
-            .profile-content h1 {
-                font-size: 28px;
+            header {
+                height: 50vh;
+            }
+
+            .header-title h1 {
+                font-size: 10vw;
+            }
+
+            .profile-content h2 {
+                font-size: 10vw;
             }
 
             .profile-content p {
-                font-size: 14px;
+                font-size: 5vw;
+            }
+
+            .btn {
+                padding: 3vw 6vw;
+                font-size: 5vw;
             }
 
             .social-links a {
-                font-size: 18px;
+                font-size: 7vw;
             }
 
             .games-list li {
-                width: 100%; /* One item per row */
+                width: 100%;
             }
 
-            .footer p {
-                font-size: 12px;
+            .specs-list li {
+                font-size: 4vw;
             }
+
+            .footer {
+                font-size: 3vw;
+            }
+            .carousel {
+    position: relative;
+    max-width: 80%; /* Adjust as needed for the desired width */
+    margin: 5vw auto; /* Center the carousel */
+    overflow: hidden;
+    border-radius: 1vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-container {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    flex: 0 0 100%; /* Ensures each image takes full width of the container */
+}
+
+/* Navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 2vw; /* Adjust for larger screens */
+    transition: background-color 0.3s;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 90%; /* Adjust for smaller screens */
+    }
+
+    .prev, .next {
+        font-size: 5vw;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+        max-width: 95%; /* Adjust for very small screens */
+    }
+
+    .prev, .next {
+        font-size: 6vw;
+        padding: 8px;
+    }
+}
+
+
         }
     </style>
 </head>
 <body>
-    <video class="background-video" autoplay muted loop>
-        <source src="./video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="container">
-        
-
-        <div class="main-content">
-            <div class="profile-content">
-                <h1>Kanthari Gaming</h1>
-                <p>Hi, I’m Prabhitha from Kerala! As a dedicated wife and gamer, I play GTA V, Valorant, and Free Fire. Check out my YouTube channel, Kanthari Gaming, for exciting streams and gameplay. Join me on my gaming journey!</p>
-                
-                <div class="buttons">
-                    <a href="https://www.youtube.com/@KanthariGaming" class="btn primary" target="_blank">Watch Live Stream</a>
-                </div>
-            </div>
-            <div class="image-content">
-                <img src="./gaming-girl.png" alt="Gamer Girl Image">
-            </div>
-           
+    <header>
+        <video class="background-video" autoplay muted loop>
+            <source src="./video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="header-title">
+            <h1>Kanthari Gaming</h1>
         </div>
-                <div class="social-links">
-                    <a href="https://www.youtube.com/@KanthariGaming" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/kanthari_gaming/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://discord.com/invite/WbT92HqBkN" target="_blank"><i class="fab fa-discord"></i></a>
-                </div>
-            
+    </header>
 
-        <section class="games-section">
-            <h2 class="section-title"></h2>
-            <ul class="games-list">
-                <li><img src="./gta.jpg" alt="GTA V Logo"> Grand Theft Auto V</li>
-                <li><img src="./valorant.jpg" alt="Valorant Logo"> Valorant</li>
-                <li><img src="./ff.png" alt="Free Fire Logo"> Free Fire</li>
-            </ul>
-        </section>
-
-        <section class="specs-section">
-            <h2 class="section-title"> Spec</h2>
-            <ul class="specs-list">
-                <li><i class="fas fa-cogs"></i> CPU: Intel Core i5</li>
-                <li><i class="fas fa-memory"></i> RAM: 8GB</li>
-                <li><i class="fas fa-hdd"></i> Storage: 512GB SSD</li>
-                <li><i class="fas fa-desktop"></i> Graphics: NVIDIA GeForce GTX 750</li>
-            </ul>
-        </section>
-
-        <footer class="footer">
-            <p>© 2024 Kanthari Gaming. All rights reserved.</p>
-            <p>Developed by <a href="mailto:codesyncdesignz@gmail.com">Code Sync Designz</a></p>
-            <p>Instagram: <a class="fab fa-instagram" href="https://www.instagram.com/codesyncdesignz/" target="_blank"></a></p>
-        </footer>
+    <div class="content">
+        <div class="profile-content">
+            <p>Hi, I’m Prabhitha from Kerala! As a dedicated wife and gamer, I play GTA V, Valorant, and Free Fire. Check out my YouTube channel, Kanthari Gaming, for exciting streams and gameplay. Join me on my gaming journey!</p>
+            <div class="buttons">
+                <a href="https://www.youtube.com/@KanthariGaming" class="btn primary">Watch Live Stream</a>
+            </div>
+        </div>
+        <div class="image-content">
+            <img src="./gaming-girl.png" alt="Gamer Girl Image">
+        </div>
     </div>
+
+    <div class="social-links">
+        <a href="https://www.youtube.com/@KanthariGaming" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/kanthari_gaming/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://discord.com/invite/WbT92HqBkN" target="_blank"><i class="fab fa-discord"></i></a>
+    </div>
+
+    <section class="games-section" id="games">
+        <h1 class="section-title">Fav Games</h1>
+        <ul class="games-list">
+            <li><img src="./gta.jpg" alt="GTA V Logo"> Grand Theft Auto V</li>
+            <li><img src="./valorant.jpg" alt="Valorant Logo"> Valorant</li>
+            <li><img src="./ff.png" alt="Free Fire Logo"> Free Fire</li>
+        </ul>
+    </section>
+    <section class="carousel">
+        <h1 class="section-title">Featured Thumbnails</h1>
+        <div class="carousel-container">
+            <div class="carousel-slide">
+
+                <img src="./t1.png" alt="Thumbnail 1">
+                <img src="./t2.png" alt="Thumbnail 2">
+                <img src="./t3.jpg" alt="Thumbnail 3">
+                <img src="./t4.png" alt="Thumbnail 4">
+                <img src="./t5.png" alt="Thumbnail 5">
+          
+    </section>
+
+    <section class="specs-section" id="specs">
+        <h1 class="section-title">Specs</h1>
+        <ul class="specs-list">
+            <li><i class="fas fa-cogs"></i> CPU: Intel Core i5</li>
+            <li><i class="fas fa-memory"></i> RAM: 8GB</li>
+            <li><i class="fas fa-hdd"></i> Storage: 512GB SSD</li>
+            <li><i class="fas fa-desktop"></i> Graphics: NVIDIA GeForce GTX 750</li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 Kanthari Gaming. All rights reserved.</p>
+        <p>Developed by <a href="mailto:codesyncdesignz@gmail.com">Code Sync Designz</a></p>
+        <p>Instagram: <a class="fab fa-instagram" href="https://www.instagram.com/codesyncdesignz/" target="_blank"></a></p>
+    </footer>
+
+    <script>
+    let slideIndex = 0;
+
+    function moveSlide(n) {
+        const slides = document.querySelector(".carousel-slide");
+        const slideCount = slides.children.length;
+        slideIndex = (slideIndex + n + slideCount) % slideCount;
+        const slideWidth = slides.children[0].offsetWidth;
+        slides.style.transform = `translateX(${-slideIndex * slideWidth}px)`;
+    }
+
+    // Optional: Automatically slide every 3 seconds
+    setInterval(() => moveSlide(1), 3000);
+    document.addEventListener('DOMContentLoaded', function () {
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const slideContainer = document.querySelector('.carousel-slide');
+    const slides = document.querySelectorAll('.carousel-slide img');
+    let index = 0;
+
+    // Set the width of the slide container based on the number of slides
+    slideContainer.style.width = `${slides.length * 100}%`;
+    
+    // Set the width of each slide
+    slides.forEach(slide => {
+        slide.style.width = `${100 / slides.length}%`;
+    });
+
+    function showSlide() {
+        slideContainer.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    next.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        showSlide();
+    });
+
+    prev.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide();
+    });
+
+    // Show the first slide
+    showSlide();
+});
+
+</script>
+
+
 </body>
 </html>
