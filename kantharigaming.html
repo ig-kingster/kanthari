@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanthari Gaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1C1C28;
+            color: white;
+            overflow-x: hidden;
+        }
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire viewport */
+            z-index: -1; /* Place behind other content */
+          
+}
+
+        
+
+        .container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            z-index: 1; /* Ensure it is above the video */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+       
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .profile-content {
+            max-width: 50%;
+        }
+
+        .profile-content h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: bounceIn 1s ease-out;
+        }
+
+        .profile-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s 0.5s ease-out forwards;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn.primary {
+            background-color: #00D8FF;
+        }
+
+        .btn.secondary {
+            background-color: #505070;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        .image-content img {
+            background-color: rgb(255, 240, 248);
+            border-radius: 20px;
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            
+        }
+
+        .image-content img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        .social-links {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #00D8FF;
+            text-decoration: none;
+            font-size: 24px;
+            display: flex;
+            align-items: centerl;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffffff;
+        }
+
+        .games-section, .specs-section {
+            margin-top: 50px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .games-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .games-list li {
+            background-color: #27293D;
+            padding: 20px;
+            border-radius: 10px;
+            width: calc(33.333% - 20px); /* Adjust width based on the number of items per row */
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .games-list li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .games-list img {
+            width: 60px; /* Adjust the size of the logo/icon as needed */
+            height: auto;
+        }
+
+        .specs-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .specs-list li {
+            background-color: #27293D;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .specs-list li:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .specs-list li i {
+            margin-right: 10px;
+            color: #00D8FF;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            color: #808080;
+            font-size: 14px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer a {
+            color: #00D8FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .profile-content {
+                max-width: 100%;
+            }
+
+            .profile-content h1 {
+                font-size: 36px;
+            }
+
+            .profile-content p {
+                font-size: 16px;
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .social-links a {
+                font-size: 20px;
+            }
+
+            .games-list li {
+                width: calc(50% - 20px); /* Two items per row */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-content h1 {
+                font-size: 28px;
+            }
+
+            .profile-content p {
+                font-size: 14px;
+            }
+
+            .social-links a {
+                font-size: 18px;
+            }
+
+            .games-list li {
+                width: 100%; /* One item per row */
+            }
+
+            .footer p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video class="background-video" autoplay muted loop>
+        <source src="./video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container">
+        
+
+        <div class="main-content">
+            <div class="profile-content">
+                <h1>Kanthari Gaming</h1>
+                <p>Hi, I’m Prabhitha from Kerala! As a dedicated wife and gamer, I play GTA V, Valorant, and Free Fire. Check out my YouTube channel, Kanthari Gaming, for exciting streams and gameplay. Join me on my gaming journey!</p>
+                
+                <div class="buttons">
+                    <a href="https://www.youtube.com/@KanthariGaming" class="btn primary" target="_blank">Watch Live Stream</a>
+                </div>
+            </div>
+            <div class="image-content">
+                <img src="./gaming-girl.png" alt="Gamer Girl Image">
+            </div>
+           
+        </div>
+                <div class="social-links">
+                    <a href="https://www.youtube.com/@KanthariGaming" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/kanthari_gaming/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://discord.com/invite/WbT92HqBkN" target="_blank"><i class="fab fa-discord"></i></a>
+                </div>
+            
+
+        <section class="games-section">
+            <h2 class="section-title"></h2>
+            <ul class="games-list">
+                <li><img src="./gta.jpg" alt="GTA V Logo"> Grand Theft Auto V</li>
+                <li><img src="./valorant.jpg" alt="Valorant Logo"> Valorant</li>
+                <li><img src="./ff.png" alt="Free Fire Logo"> Free Fire</li>
+            </ul>
+        </section>
+
+        <section class="specs-section">
+            <h2 class="section-title"> Spec</h2>
+            <ul class="specs-list">
+                <li><i class="fas fa-cogs"></i> CPU: Intel Core i5</li>
+                <li><i class="fas fa-memory"></i> RAM: 8GB</li>
+                <li><i class="fas fa-hdd"></i> Storage: 512GB SSD</li>
+                <li><i class="fas fa-desktop"></i> Graphics: NVIDIA GeForce GTX 750</li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>© 2024 Kanthari Gaming. All rights reserved.</p>
+            <p>Developed by <a href="mailto:codesyncdesignz@gmail.com">Code Sync Designz</a></p>
+            <p>Instagram: <a class="fab fa-instagram" href="https://www.instagram.com/codesyncdesignz/" target="_blank"></a></p>
+        </footer>
+    </div>
+</body>
+</html>
